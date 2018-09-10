@@ -3,7 +3,7 @@ package keams.keams.Models.Repositories;
 import keams.keams.ConnectionCreator;
 import keams.keams.Interfaces.StudentRepositoryInterface;
 import keams.keams.Models.StudentModel;
-
+import org.springframework.stereotype.Repository;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

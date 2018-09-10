@@ -19,8 +19,8 @@ public class StudentController {
     // AUTHOR(S): AP
     @RequestMapping(value = "/students", method = RequestMethod.GET)
     public String students (Model model) {
-        model.addAttribute("students", StudentRepository.//GET.STUDENTLIST);
+        model.addAttribute("students", studentRepository.getStudentList());
 
-        return "/admin/editList";
+        return "/students";
     }
 }
