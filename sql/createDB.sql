@@ -4,8 +4,8 @@ USE kea;
 
 
 CREATE TABLE students(
-	student_id INT AUTO_INCREMENT PRIMARY KEY,
-    student_cpr int (11),
+	student_id INT AUTO_INCREMENT primary key,
+    student_cpr varchar(10),
     student_name VARCHAR(50) NOT NULL,
     student_age int NOT NULL
     
@@ -63,3 +63,5 @@ CREATE TABLE assignments(
     PRIMARY KEY(assignment_id, fk_course_id),
     FOREIGN KEY(fk_course_id) REFERENCES courses(course_id)
 );
+
+ALTER TABLE students ADD UNIQUE INDEX cpr (student_cpr);

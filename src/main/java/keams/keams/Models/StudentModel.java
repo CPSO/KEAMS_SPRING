@@ -1,25 +1,28 @@
 package keams.keams.Models;
 
 public class StudentModel {
-    private String name;
-    private int id, age, cpr;
+    private String name, cpr;
+    private int id, age;
 
     // AUTHOR(S): ECS
+
     /**
      * Constructor used to get a list of products
-     * @param id The name of the product
-     * @param age The price of the product
-     * @param cpr the number of the student
+     *
+     * @param id   The name of the product
+     * @param age  The price of the product
+     * @param cpr  the number of the student
      * @param name the name of the student
      */
-    public StudentModel(int id, int cpr, String name, int age) {
+    public StudentModel(int id, String cpr, String name, int age) {
         this.id = id;
         this.cpr = cpr;
         this.name = name;
         this.age = age;
 
     }
-    public StudentModel(){
+
+    public StudentModel() {
 
     }
 
@@ -47,11 +50,12 @@ public class StudentModel {
         this.age = age;
     }
 
-    public int getCpr() {
+    public String getCpr() {
         return cpr;
     }
 
-    public void setCpr(int cpr) {
+    public void setCpr(String cpr) {
         this.cpr = cpr;
     }
 }
+

@@ -28,7 +28,7 @@ public class StudentRepository implements StudentRepositoryInterface {
             preparedStatement = connectionCreator.getConnection().prepareStatement(createString);
 
             System.out.println("creating product with CPR=" + p.getCpr());
-            preparedStatement.setInt(1, p.getCpr());
+            preparedStatement.setString(1, p.getCpr());
             preparedStatement.setString(2, p.getName());
             preparedStatement.setInt(3, p.getAge());
 
@@ -73,7 +73,7 @@ public class StudentRepository implements StudentRepositoryInterface {
             rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
-                students.add(new StudentModel(rs.getInt(1), rs.getInt(2), rs.getString(3),rs.getInt(4)));
+                students.add(new StudentModel(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getInt(4)));
             }
 
             System.out.println("closing resultset...");
