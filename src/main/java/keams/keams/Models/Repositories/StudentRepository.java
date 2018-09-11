@@ -58,22 +58,22 @@ public class StudentRepository implements StudentRepositoryInterface {
     }
     @Override
     public List<StudentModel> getStudentList() {
-        List<StudentModel> products = new ArrayList<>();
+        List<StudentModel> students = new ArrayList<>();
         PreparedStatement preparedStatement = null;
         ResultSet rs = null;
 
-        System.out.println("creating select statement for all products");
-        String getAdminProductsString = "SELECT * FROM students";
+        System.out.println("creating select statement for all students");
+        String getAllStudentsString = "SELECT * FROM students";
 
         try {
             System.out.println("getting connection...");
-            preparedStatement = connectionCreator.getConnection().prepareStatement(getAdminProductsString);
+            preparedStatement = connectionCreator.getConnection().prepareStatement(getAllStudentsString);
 
-            System.out.println("selecting all products");
+            System.out.println("selecting all students");
             rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
-                products.add(new StudentModel(rs.getString(1), rs.getInt(2), rs.getInt(3)));
+                students.add(new StudentModel(rs.getInt(1), rs.getInt(2), rs.getString(3),rs.getInt(4)));
             }
 
             System.out.println("closing resultset...");
@@ -85,6 +85,6 @@ public class StudentRepository implements StudentRepositoryInterface {
             e.printStackTrace();
         }
 
-        return products;
+        return students;
     }
 }
