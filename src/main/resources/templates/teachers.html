@@ -9,22 +9,22 @@
 <body>
 <div th:include="../fragments/pageStyle :: nav_top"></div>
 <div class="container">
-    <h1>Der skulle gerne være et eller andet her</h1>
+    <h1>Liste over undervisere på KEA</h1>
     <table class="table table-striped">
         <thead>
         <tr>
             <th scope="col">#id</th>
             <th scope="col">Navn</th>
-            <th scope="col">Alder</th>
-            <th scope="col">CPR</th>
+            <th scope="col">Email</th>
+            <th scope="col">Password</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="student : ${students}">
-            <td th:text="${student.id}"></td>
-            <td th:text="${student.name}"></td>
-            <td th:text="${student.age}"></td>
-            <td th:text="${student.cpr}"></td>
+        <tr th:each="teacher : ${teachers}">
+            <td th:text="${teacher.id}"></td>
+            <td th:text="${teacher.name}"></td>
+            <td th:text="${teacher.mail}"></td>
+            <td th:text="${teacher.pw}"></td>
         </tr>
         </tbody>
     </table>

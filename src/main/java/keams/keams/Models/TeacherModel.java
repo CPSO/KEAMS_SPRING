@@ -4,7 +4,15 @@ public class TeacherModel {
     private String name, mail,pw;
     private int id;
 
-    public TeacherModel(String name, String mail, String pw, int id) {
+    /**
+     * Constructor used to get a list of products
+     *
+     * @param id   The name of the product
+     * @param name  The price of the product
+     * @param mail the number of the student
+     * @param pw the name of the student
+     */
+    public TeacherModel(int id, String name, String mail, String pw) {
         this.name = name;
         this.mail = mail;
         this.pw = pw;

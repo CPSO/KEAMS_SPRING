@@ -1,15 +1,17 @@
 package keams.keams.Models.Repositories;
 
 import keams.keams.ConnectionCreator;
-import keams.keams.Interfaces.TeacherRepositoryInterface;
+import keams.keams.Interfaces.CourseRepositoryInterface;
+import keams.keams.Models.CourseModel;
 import keams.keams.Models.TeacherModel;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TeacherRepository implements TeacherRepositoryInterface {
+public class CourseRepository implements CourseRepositoryInterface {
 
     // AUTHOR(S): AP, LKB
     private ConnectionCreator connectionCreator = new ConnectionCreator();
@@ -57,23 +59,23 @@ public class TeacherRepository implements TeacherRepositoryInterface {
     }
     */
     @Override
-    public List<TeacherModel> getTeacherList() {
-        List<TeacherModel> teachers = new ArrayList<>();
+    public List<CourseModel> getCourseList() {
+        List<CourseModel> courses = new ArrayList<>();
         PreparedStatement preparedStatement = null;
         ResultSet rs = null;
 
-        System.out.println("creating select statement for all teachers");
-        String getAllTeachersString = "SELECT * FROM teachers";
+        System.out.println("creating select statement for all courses");
+        String getAllCoursesString = "SELECT * FROM courses";
 
         try {
             System.out.println("getting connection...");
-            preparedStatement = connectionCreator.getConnection().prepareStatement(getAllTeachersString);
+            preparedStatement = connectionCreator.getConnection().prepareStatement(getAllCoursesString);
 
-            System.out.println("selecting all teachers");
+            System.out.println("selecting all courses");
             rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
-                teachers.add(new TeacherModel(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4)));
+                courses.add(new CourseModel(rs.getInt(1), rs.getString(2),rs.getString(3),rs.getInt(4)));
             }
 
             System.out.println("closing resultset...");
@@ -85,6 +87,6 @@ public class TeacherRepository implements TeacherRepositoryInterface {
             e.printStackTrace();
         }
 
-        return teachers;
+        return courses;
     }
 }

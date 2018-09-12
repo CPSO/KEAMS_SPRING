@@ -1,12 +1,11 @@
 package keams.keams.Interfaces;
 
-import keams.keams.Models.StudentModel;
-
+import keams.keams.Models.TeacherModel;
 import java.util.List;
 
 
 public interface TeacherRepositoryInterface {
-    String createTeacher(StudentModel p);
-    List<StudentModel> getTeacherList();
+    //String createTeacher(TeacherModel p);
+    List<TeacherModel> getTeacherList();
 
 }

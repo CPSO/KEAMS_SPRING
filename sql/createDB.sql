@@ -22,7 +22,9 @@ CREATE TABLE teachers(
 
 CREATE TABLE courses(
 	course_id INT AUTO_INCREMENT PRIMARY KEY,
-    course_name VARCHAR(50)
+    course_nameL VARCHAR(50),
+    course_nameS VARCHAR(50),
+    course_semester int
 );
 
 CREATE TABLE exsams (
@@ -68,3 +70,4 @@ CREATE TABLE assignments(
 
 ALTER TABLE students ADD UNIQUE INDEX cpr (student_cpr);
 ALTER TABLE teachers ADD UNIQUE INDEX mail (teacher_mail);
+ALTER TABLE courses ADD UNIQUE INDEX course (course_nameL, course_nameS);

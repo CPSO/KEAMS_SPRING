@@ -9,22 +9,22 @@
 <body>
 <div th:include="../fragments/pageStyle :: nav_top"></div>
 <div class="container">
-    <h1>Liste over studerne på KEA</h1>
+    <h1>Liste over kurser på KEA</h1>
     <table class="table table-striped">
         <thead>
         <tr>
             <th scope="col">#id</th>
-            <th scope="col">Navn</th>
-            <th scope="col">Alder</th>
-            <th scope="col">CPR</th>
+            <th scope="col">Navn Langt</th>
+            <th scope="col">Navn Kort</th>
+            <th scope="col">Semester</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="student : ${students}">
-            <td th:text="${student.id}"></td>
-            <td th:text="${student.name}"></td>
-            <td th:text="${student.age}"></td>
-            <td th:text="${student.cpr}"></td>
+        <tr th:each="course : ${courses}">
+            <td th:text="${course.id}"></td>
+            <td th:text="${course.nameL}"></td>
+            <td th:text="${course.nameS}"></td>
+            <td th:text="${course.semester}"></td>
         </tr>
         </tbody>
     </table>
