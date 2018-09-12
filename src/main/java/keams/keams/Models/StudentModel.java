@@ -4,8 +4,6 @@ public class StudentModel {
     private String name, cpr;
     private int id, age;
 
-    // AUTHOR(S): ECS
-
     /**
      * Constructor used to get a list of products
      *

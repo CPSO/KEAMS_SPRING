@@ -14,7 +14,9 @@ CREATE TABLE students(
 
 CREATE TABLE teachers(
 	teacher_id INT AUTO_INCREMENT PRIMARY KEY,
-	teacher_name VARCHAR(50)
+	teacher_name VARCHAR(50),
+    teacher_mail VARCHAR (50),
+    teacher_pw VARCHAR (50)
 );
 
 
@@ -65,3 +67,4 @@ CREATE TABLE assignments(
 );
 
 ALTER TABLE students ADD UNIQUE INDEX cpr (student_cpr);
+ALTER TABLE teachers ADD UNIQUE INDEX mail (teacher_mail);
