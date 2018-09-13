@@ -4,6 +4,7 @@ import keams.keams.Interfaces.StudentRepositoryInterface;
 import keams.keams.Models.Repositories.StudentRepository;
 import keams.keams.Models.StudentModel;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -49,5 +50,20 @@ public class StudentController {
         rdt.addFlashAttribute("message", msg);
 
         return "redirect:/admin/students";
+    }
+
+    @RequestMapping(value = "/admin/student/edit/{id}", method = RequestMethod.GET)
+    public String edit(Model model, @PathVariable(value = "id") String id) {
+        model.addAttribute("student", studentRepository.get(id));
+
+        return "/admin/student/edit";
+    }
+
+    @RequestMapping(value = "/admin/editProduct", method = RequestMethod.POST)
+    public String edit(@ModelAttribute StudentModel studentModel, RedirectAttributes rdt) {
+        rdt.addFlashAttribute("message", "Vare redigeret");
+        studentRepository.updateStudent(studentModel);
+
+        return "redirect:/admin/editList";
     }
 }

@@ -12,7 +12,26 @@
     <h1>KEA - Mannagement System v0.1</h1>
     <h5>Udviklet baseret på keams v0.5.</h5>
     <hr>
-    
+    <form id="form" th:object="${student}" th:action="@{/admin/student/edit}" method="POST">
+        <div class="grid-container">
+            <label>EAN</label>
+            <label th:text="${student.id}" style="grid-column: span 2"></label>
+            <input type="text" th:field="*{id}" required style="display: none"/>
+            <!-- Makes a dropdown to select only the categorise that are in use -->
+            <label>Navn</label>
+            <label th:text="${student.name}" ></label>
+            <input type="text" th:field="*{name}" required maxlength="20"/>
+            <label>Alder</label>
+            <label th:text="${student.age}"></label>
+            <input type="number" th:field="*{age}" required maxlength="50"/>
+            <label>CPR</label>
+            <label th:text="${student.cpr}"></label>
+            <input type="text" th:field="*{cpr}" required max="2147483647"/>
+
+        </div>
+        <input type="submit" value="Gem"/>
+    </form>
+
 </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

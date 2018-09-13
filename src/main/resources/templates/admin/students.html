@@ -34,8 +34,8 @@
             <td th:text="${student.name}"></td>
             <td th:text="${student.age}"></td>
             <td th:text="${student.cpr}"></td>
-            <td style="width: 8.33%"><a id="edit" th:href="${'/admin/editStudent/' + student.id}" title="Rediger" class="btn btn-info">Rediger</a></td>
-            <td style="width: 8.33%"><a id="delete" th:href="${'/admin/deleteStudent/' + student.id}" title="Slet" class="btn btn-danger">Slet</a></td>
+            <td style="width: 8.33%"><a id="edit" th:href="${'/admin/student/edit/' + student.id}" title="Rediger" class="btn btn-info">Rediger</a></td>
+            <td style="width: 8.33%"><a id="delete" th:href="${'/admin/student/delete/' + student.id}" title="Slet" class="btn btn-danger">Slet</a></td>
         </tr>
         </tbody>
     </table>
