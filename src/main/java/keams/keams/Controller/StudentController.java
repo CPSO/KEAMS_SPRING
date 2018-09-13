@@ -36,13 +36,13 @@ public class StudentController {
         return "/admin/students";
     }
 
-    @RequestMapping(value = "/admin/createstudent", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin/student/create", method = RequestMethod.GET)
     public String create(Model model, Model categoryModel) {
         model.addAttribute("studentModel", new StudentModel());
 
-        return "/admin/createstudent";
+        return "/admin/student/create";
     }
-    @RequestMapping(value = "/admin/createstudent", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/student/create", method = RequestMethod.POST)
     public String create(@ModelAttribute StudentModel studentModel, RedirectAttributes rdt) {
         String msg = studentRepository.createStudent(studentModel);
 

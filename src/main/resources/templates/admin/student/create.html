@@ -12,7 +12,7 @@
     <h1>KEA - Mannagement System v0.1</h1>
     <h5>Udviklet baseret på keams v0.5.</h5>
     <hr>
-    <form id="form" th:action="@{/admin/createstudent}" method="POST">
+    <form id="form" th:action="@{/admin/student/create}" method="POST">
         <div class="form-group">
             <label for="InputCPR">CPR-Numer</label>
             <input type="text" class="form-control" id="InputCPR" aria-describedby="cprHelp" placeholder="Enter CPR-Nummer" th:field="${studentModel.cpr}" maxlength="10">
