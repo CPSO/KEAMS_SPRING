@@ -24,4 +24,11 @@ public class CourseController {
 
         return "/courses";
     }
+
+    @RequestMapping(value = "/admin/courses", method = RequestMethod.GET)
+    public String adminCourses (Model model) {
+        model.addAttribute("courses", courseRepository.getCourseList());
+
+        return "/admin/courses";
+    }
 }

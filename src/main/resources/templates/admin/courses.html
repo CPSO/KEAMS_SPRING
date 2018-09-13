@@ -11,30 +11,28 @@
 <div class="container">
     <h1>KEA - Mannagement System v0.1</h1>
     <h5>Udviklet baseret på keams v0.5.</h5>
-
-        <form class="form-inline mt-2 mt-md-0 mb-2 justify-content-end">
-            <a class="btn btn-success" href="/admin/">Opret Underviser</a>
-        </form>
-
+    <form class="form-inline mt-2 mt-md-0 mb-2 justify-content-end">
+        <a class="btn btn-success" href="/admin/">Opret Kursus</a>
+    </form>
     <table class="table table-striped">
         <thead>
         <tr>
             <th scope="col">#id</th>
-            <th scope="col">Navn</th>
-            <th scope="col">Email</th>
-            <th scope="col">Password</th>
+            <th scope="col">Navn Kort</th>
+            <th scope="col">Navn Lang</th>
+            <th scope="col">Semester</th>
             <th></th>
             <th></th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="teacher : ${teachers}">
-            <td th:text="${teacher.id}" style="width: 8.33%"></td>
-            <td th:text="${teacher.name}"></td>
-            <td th:text="${teacher.mail}"></td>
-            <td th:text="${teacher.pw}"></td>
-            <td style="width: 8.33%"><a id="edit" th:href="${'/admin/editTeacher/' + teacher.id}" title="Rediger" class="btn btn-info">Rediger</a></td>
-            <td style="width: 8.33%"><a id="delete" th:href="${'/admin/deleteTeacher/' + teacher.id}" title="Slet" class="btn btn-danger">Slet</a></td>
+        <tr th:each="course : ${courses}">
+            <td th:text="${course.id}" style="width: 8.33%"></td>
+            <td th:text="${course.nameL}"></td>
+            <td th:text="${course.nameS}"></td>
+            <td th:text="${course.semester}"></td>
+            <td style="width: 8.33%"><a id="edit" th:href="${'/admin/editCourse/' + course.id}" title="Rediger" class="btn btn-info">Rediger</a></td>
+            <td style="width: 8.33%"><a id="delete" th:href="${'/admin/deleteCourse/' + course.id}" title="Slet" class="btn btn-danger">Slet</a></td>
         </tr>
         </tbody>
     </table>
