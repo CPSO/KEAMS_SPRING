@@ -11,8 +11,11 @@
 <div class="container">
     <h1>KEA - Mannagement System v0.1</h1>
     <h5>Udviklet baseret på keams v0.5.</h5>
+    <form class="form-inline mt-2 mt-md-0 mb-2 justify-content-center">
+        <div id="hideMe" th:if="${message}" th:text="${message}" class="text-dark mb-2 mt-2 alert-success"/>
+    </form>
     <form class="form-inline mt-2 mt-md-0 mb-2 justify-content-end">
-        <a class="btn btn-success" href="/admin/">Opret Studerne</a>
+        <a class="btn btn-success" href="/admin/createstudent">Opret Studerne</a>
     </form>
     <table class="table table-striped">
         <thead>
@@ -41,9 +44,38 @@
 
 
 </div>
-
-
 </body>
+<style>
+    /*Style for the reply messege that show up after you press a post button*/
+    /* https://stackoverflow.com/a/21994053 */
+    #hideMe {
+        color: #252525;
+        -moz-animation: cssAnimation 0s ease-in 3s forwards;
+        /* Firefox */
+        -webkit-animation: cssAnimation 0s ease-in 3s forwards;
+        /* Safari and Chrome */
+        -o-animation: cssAnimation 0s ease-in 3s forwards;
+        /* Opera */
+        animation: cssAnimation 0s ease-in 3s forwards;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+        text-align: center;
+    }
+    @keyframes cssAnimation {
+        to {
+            width:0;
+            height:0;
+            overflow:hidden;
+        }
+    }
+    @-webkit-keyframes cssAnimation {
+        to {
+            width: 0;
+            height: 0;
+            visibility: hidden;
+        }
+    }
+</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="../static/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
 </html>

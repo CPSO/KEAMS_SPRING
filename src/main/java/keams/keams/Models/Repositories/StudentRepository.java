@@ -20,17 +20,18 @@ public class StudentRepository implements StudentRepositoryInterface {
     public String createStudent(StudentModel p) {
         PreparedStatement preparedStatement = null;
 
-        System.out.println("creating statement for EAN=" + p.getName());
-        String createString = "INSERT INTO products VALUES(?, ?, ?, ?, ?, ?, ?)";
+        System.out.println("creating statement for Student=" + p.getName());
+        String createString = "INSERT INTO students VALUES(?, ?, ?,?)";
 
         try {
             System.out.println("getting connection...");
             preparedStatement = connectionCreator.getConnection().prepareStatement(createString);
 
-            System.out.println("creating product with CPR=" + p.getCpr());
-            preparedStatement.setString(1, p.getCpr());
-            preparedStatement.setString(2, p.getName());
-            preparedStatement.setInt(3, p.getAge());
+            System.out.println("creating student with CPR=" + p.getCpr());
+            preparedStatement.setInt(1, p.getId());
+            preparedStatement.setString(2, p.getCpr());
+            preparedStatement.setString(3, p.getName());
+            preparedStatement.setInt(4, p.getAge());
 
         } catch (SQLException e) {
             e.printStackTrace();

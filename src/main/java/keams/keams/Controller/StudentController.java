@@ -2,6 +2,9 @@ package keams.keams.Controller;
 
 import keams.keams.Interfaces.StudentRepositoryInterface;
 import keams.keams.Models.Repositories.StudentRepository;
+import keams.keams.Models.StudentModel;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,5 +34,20 @@ public class StudentController {
         model.addAttribute("students", studentRepository.getStudentList());
 
         return "/admin/students";
+    }
+
+    @RequestMapping(value = "/admin/createstudent", method = RequestMethod.GET)
+    public String create(Model model, Model categoryModel) {
+        model.addAttribute("studentModel", new StudentModel());
+
+        return "/admin/createstudent";
+    }
+    @RequestMapping(value = "/admin/createstudent", method = RequestMethod.POST)
+    public String create(@ModelAttribute StudentModel studentModel, RedirectAttributes rdt) {
+        String msg = studentRepository.createStudent(studentModel);
+
+        rdt.addFlashAttribute("message", msg);
+
+        return "redirect:/admin/students";
     }
 }
