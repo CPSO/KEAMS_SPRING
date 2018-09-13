@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+</head>
+<body>
+<div th:include="../fragments/AdminpageStyle :: nav_top"></div>
+<div class="container">
+    <h1>KEA - Mannagement System v0.1</h1>
+    <h5>Udviklet baseret på keams v0.5.</h5>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#id</th>
+            <th scope="col">Navn</th>
+            <th scope="col">Alder</th>
+            <th scope="col">CPR</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="student : ${students}">
+            <td th:text="${student.id}"></td>
+            <td th:text="${student.name}"></td>
+            <td th:text="${student.age}"></td>
+            <td th:text="${student.cpr}"></td>
+            <td style="width: 8.33%"><a id="edit" th:href="${'/admin/editStudent/' + student.id}" title="Rediger" class="btn btn-info">Rediger</a></td>
+            <td style="width: 8.33%"><a id="delete" th:href="${'/admin/deleteStudent/' + student.id}" title="Slet" class="btn btn-danger">Slet</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+</div>
+
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="../static/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
+</html>

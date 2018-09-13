@@ -25,4 +25,11 @@ public class StudentController {
 
         return "/students";
     }
+
+    @RequestMapping(value = "/admin/students", method = RequestMethod.GET)
+    public String adminStudents (Model model) {
+        model.addAttribute("students", studentRepository.getStudentList());
+
+        return "/admin/students";
+    }
 }

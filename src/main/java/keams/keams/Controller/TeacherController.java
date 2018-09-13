@@ -24,4 +24,11 @@ public class TeacherController {
 
         return "/teachers";
     }
+
+    @RequestMapping(value = "/admin/teachers", method = RequestMethod.GET)
+    public String adminTeachers (Model model) {
+        model.addAttribute("teachers", teacherRepository.getTeacherList());
+
+        return "/admin/teachers";
+    }
 }
