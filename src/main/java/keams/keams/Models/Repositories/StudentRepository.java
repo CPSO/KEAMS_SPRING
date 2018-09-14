@@ -123,9 +123,9 @@ public class StudentRepository implements StudentRepositoryInterface {
 
     @Override
     public void updateStudent(StudentModel p) {
-        System.out.println("creating update statement for CPR=" + p.getCpr());
+        System.out.println("creating update statement for CPR=" + p.getId());
         String updateString = "UPDATE students SET student_cpr = ?, student_name = ?, student_age = ? "
-                + " WHERE id = ?";
+                + " WHERE student_id = ?";
         PreparedStatement preparedStatement = null;
 
         try {
@@ -136,6 +136,7 @@ public class StudentRepository implements StudentRepositoryInterface {
             preparedStatement.setString(1, p.getCpr());
             preparedStatement.setString(2, p.getName());
             preparedStatement.setInt(3, p.getAge());
+            preparedStatement.setInt(4, p.getId());
 
             System.out.println("executing...");
             preparedStatement.executeUpdate();

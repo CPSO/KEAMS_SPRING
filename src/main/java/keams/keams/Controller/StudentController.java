@@ -59,11 +59,11 @@ public class StudentController {
         return "/admin/student/edit";
     }
 
-    @RequestMapping(value = "/admin/editProduct", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/student/edit", method = RequestMethod.POST)
     public String edit(@ModelAttribute StudentModel studentModel, RedirectAttributes rdt) {
-        rdt.addFlashAttribute("message", "Vare redigeret");
+        rdt.addFlashAttribute("message", "Student redigeret");
         studentRepository.updateStudent(studentModel);
 
-        return "redirect:/admin/editList";
+        return "redirect:/admin/students";
     }
 }
